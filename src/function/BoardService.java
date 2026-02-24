@@ -45,4 +45,6 @@ public class BoardService {
     public Article getArticleById(int articleId) {
 
     }
+
 }
+
