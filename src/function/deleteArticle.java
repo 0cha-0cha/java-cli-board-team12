@@ -3,7 +3,7 @@ package function;
 import java.util.List;
 import data.Article;
 
-// 게시글 삭제 메소드 (손주현)
+// 게시글 삭제 기능 (손주현)
 public class deleteArticle {
     Article article;
     public deleteArticle(Article article) {
