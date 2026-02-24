@@ -49,7 +49,7 @@ public class BoardService {
 
     // 게시글 조회 메소드 (표지민) _ 특정 ID로 게시글 조회
     public Article getArticleById(int articleId) {
-    	readService.findById(this.articles, articleId)
+    	readService.findById(this.articles, articleId);
     }
 
 }
