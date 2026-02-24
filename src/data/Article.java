@@ -3,7 +3,7 @@ package data;
 import java.time.LocalDateTime;
 
 public class Article {
-    private int id = 0;
+    private int id;
     private String title;
     private String content;
     private String writer;
