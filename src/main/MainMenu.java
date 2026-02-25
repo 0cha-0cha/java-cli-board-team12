@@ -1,5 +1,7 @@
 package main;
 
+import function.UpdateArticle;
+
 import java.util.Scanner;
 
 public class MainMenu {
@@ -24,5 +26,6 @@ public class MainMenu {
         System.out.print ("메뉴선택: ");
         int input = sc.nextInt();
         System.out.println("선택한 메뉴: " + input);
+
     }
 }
