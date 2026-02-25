@@ -1,5 +1,7 @@
 package main;
 
+import function.UpdateArticle;
+
 import java.util.Scanner;
 
 public class MainMenu {

@@ -8,7 +8,7 @@ public class ProgressBar {
     public static void displayProgressBar(double duration, String message) {
         System.out.println(message);
 
-        int totalSteps = 40; // 부드러운 스피너를 위해 단계 수 100 유지
+        int totalSteps = 40; // 스피너 단계 수
         long interval = (long) ((duration * 1000) / totalSteps);
         char[] spinner = {'/', '-', '\\', '|'};
 
@@ -21,7 +21,7 @@ public class ProgressBar {
             // 스피너 문자는 루프 인덱스에 따라 순환
             char spinnerChar = spinner[i % spinner.length];
 
-            // 흰색 배경을 적용한 공백으로 진행률 채움
+            // 배경 채우기
             String filledBar = ANSI_BG_WHITE + " ".repeat(filledLength) + ANSI_RESET;
             String emptyBar = " ".repeat(barLength - filledLength);
 
