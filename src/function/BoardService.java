@@ -21,28 +21,4 @@
 //        deleteService = new DeleteService();
 //    }
 //
-//    // 게시글 등록 메소드 (형성빈)
-//    public void addArticle(String title, String content, String writer) {
-//
-//    }
-//
-//    // 게시글 수정 메소드 (이근찬)
-//    public void updateArticle(int articleId, String newTitle, String newContent) {
-//
-//    }
-//
-//    // 게시글 삭제 메소드 (손주현)
-//    public void deleteArticle(int articleId) {
-//
-//    }
-//
-//    // 게시글 조회 메소드 (표지민) _ 모든 게시글 조회
-//    public List<Article> getAllArticles() {
-//
-//    }
-//
-//    // 게시글 조회 메소드 (표지민) _ 특정 ID로 게시글 조회
-//    public Article getArticleById(int articleId) {
-//
-//    }
 //}

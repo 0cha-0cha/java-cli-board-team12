@@ -40,67 +40,16 @@ public class MainMenu {
             System.out.println();
             switch (input) {
                 case 1: //게시글 등록
-                    System.out.print("작성자 > ");
-                    sc.nextLine();
-                    String writer = sc.nextLine();
-                    System.out.print("제목 > ");
-                    String title = sc.nextLine();
-                    System.out.print("내용 > ");
-                    String content = sc.nextLine();
-                    System.out.println("---------------------------------");
-                    //게시글 등록 기능 삽입
-                    System.out.println("게시글 등록이 완료되었습니다.");
-                    System.out.println("=================================");
                     break;
                 case 2: //전체 게시글 조회
-                    System.out.println("---------------------------------");
-                    System.out.println("번호 | 제목\t | 작성자 | 작성일 | 조회수 ");
-                    System.out.println("---------------------------------");
-                    //게시글 조회 기능 삽입
-                    // 1    | 안녕하세요          | 홍길동     | 2024-01-01    | 0
-                    System.out.println("---------------------------------");
                     break;
                 case 3: //게시글 상세 조회
-                    System.out.println("조회를 원하는 게시글 번호를 입력하십시오.");
-                    System.out.print("선택 > ");
-                    int id = sc.nextInt();
-                    System.out.println("=================================");
-                    System.out.print("번호\t: ");
-                    // 게시글 조회 기능 삽입
-                    System.out.print("제목\t: ");
-                    System.out.print("작성자\t: ");
-                    System.out.print("작성일\t: ");
-                    System.out.print("조회수\t: ");
-                    System.out.println();
-                    System.out.println("---------------------------------");
-                    //게시글 조회 기능 삽입
-                    System.out.println("=================================");
                     break;
                 case 4: //게시글 수정
-                    System.out.println("수정을 원하는 게시글 번호를 입력하십시오.");
-                    System.out.print("선택 > ");
-                    id = sc.nextInt();
-                    sc.nextLine();
-                    System.out.println("=================================");
-                    System.out.println("번호\t: "+id);
-                    System.out.print("제목\t: ");
-                    title = sc.nextLine();
-                    //게시글 수정 기능 삽입
-                    System.out.println("---------------------------------");
-                    content = sc.nextLine();
-                    //게시글 수정 기능 삽입
-                    System.out.println("---------------------------------");
-                    System.out.println("게시글 수정이 완료되었습니다.");
-                    System.out.println("=================================");
+
                     break;
                 case 5: //게시글 삭제
-                    System.out.println("삭제를 원하는 게시글 번호를 입력하십시오.");
-                    System.out.print("선택 > ");
-                    id = sc.nextInt();
-                    //게시글 삭제 기능 삽입
-                    System.out.println("=================================");
-                    System.out.println("게시글 삭제가 완료되었습니다.");
-                    System.out.println("=================================");
+                    
                     break;
                 case 0: //종료
                     System.out.println("서비스를 종료합니다.");
