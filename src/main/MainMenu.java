@@ -39,6 +39,7 @@ public class MainMenu {
             switch (input) {
                 case 1: //게시글 등록
                     System.out.print("작성자 > ");
+                    sc.nextLine();
                     String writer = sc.nextLine();
                     System.out.print("제목 > ");
                     String title = sc.nextLine();
@@ -77,6 +78,7 @@ public class MainMenu {
                     System.out.println("수정을 원하는 게시글 번호를 입력하십시오.");
                     System.out.print("선택 > ");
                     id = sc.nextInt();
+                    sc.nextLine();
                     System.out.println("=================================");
                     System.out.println("번호\t: "+id);
                     System.out.print("제목\t: ");
@@ -104,9 +106,9 @@ public class MainMenu {
                 default:
                     System.out.println("메뉴에 나와있는 번호만 입력해주십시오.");
             }
-            System.out.println("확인하셨다면 아무키나 눌러주세요.");
+            System.out.println("확인하셨다면 엔터를 눌러주세요.");
             sc.nextLine();
-            ClearScreen.clearScreen();
+            
         }
     }
 }
