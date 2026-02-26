@@ -2,7 +2,6 @@ package main;
 
 import data.Article;
 import function.CreateService;
-import function.ReadService;
 import function.UpdateArticle;
 import function.DeleteArticle;
 import function.ReadService;
@@ -16,7 +15,6 @@ public class MainMenu {
     private int nextId = 1;
 
     private CreateService createService;
-    private ReadService readService;
     private UpdateArticle updateArticle;
     private DeleteArticle deleteArticle;
     private ReadService readService;
@@ -24,7 +22,6 @@ public class MainMenu {
     public MainMenu(Scanner sc) {
         this.sc = sc;
         this.createService = new CreateService(articles, sc);
-        this.readService = new ReadService(sc, articles);
         this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
         this.readService = new ReadService(sc, articles);
@@ -87,7 +84,7 @@ public class MainMenu {
                 default:
                     System.out.println("메뉴에 나와있는 번호만 입력해주십시오.");
             }
-//            sc.nextLine(); // 버퍼 비우기
+            sc.nextLine(); // 버퍼 비우기
             System.out.println("진행하시려면 엔터를 눌러주세요.");
             sc.nextLine();
             ClearScreen.clearScreen();

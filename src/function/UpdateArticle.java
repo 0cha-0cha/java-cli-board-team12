@@ -56,6 +56,7 @@ public class UpdateArticle implements Page {
         slowPrintLine(("번호 : " + targetArticle.getId()),400);
         slowPrintLine("제목 : " + targetArticle.getTitle(),400);
         slowPrintLine("작성자 : " + targetArticle.getWriter(), 400);
+        slowPrintLine("작성일: " + targetArticle.getCreatedAt(), 400);
         slowPrintLine("내용 : " + targetArticle.getContent(), 400);
         slowPrintLine("=================================", 100);
         System.out.println();
