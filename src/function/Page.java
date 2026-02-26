@@ -13,7 +13,7 @@ public interface Page {
         System.out.println();
     }
 
-    public abstract  void select();
+    public abstract void select();
 
     public abstract void show(int page);
 }
