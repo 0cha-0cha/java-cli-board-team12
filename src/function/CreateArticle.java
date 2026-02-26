@@ -1,7 +1,7 @@
 package function;
 
 import data.Article;
-
+import static function.PrintUtil.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,17 +26,20 @@ public class CreateArticle implements Page {
     public void show(int nextId) {
 
         clear();
-
+        slowPrintChar("새 게시글을 작성합니다.\n", 50);
+        slowPrintLine("=================================", 100);
         String writer = readNonBlank("작성자");
         String title = readNonBlank("제목");
         String content = readNonBlank("내용");
 
-        System.out.println("---------------------------------");
+        slowPrintLine("---------------------------------", 100);
 
         addArticle(nextId, title, content, writer);
 
-        System.out.println("게시글 등록이 완료되었습니다.");
-        System.out.println("=================================");
+        loading(1.0, "게시글을 등록하는 중입니다...");
+        slowPrintLine("---------------------------------", 100);
+        slowPrintChar("게시글 등록이 완료되었습니다.\n", 50);
+        slowPrintLine("=================================", 100);
     }
 
     private void addArticle(int id, String title, String content, String writer) {
@@ -46,14 +49,14 @@ public class CreateArticle implements Page {
     //입력 예외처리
     private String readNonBlank(String label) {
         while (true) {
-            System.out.print(label + " > ");
+            slowPrintChar(label + " > ", 50);
             String input = sc.nextLine();
 
             if (!input.trim().isEmpty()) {
                 return input.trim();
             }
 
-            System.out.println("빈 값은 입력할 수 없습니다.");
+            slowPrintChar("빈 값은 입력할 수 없습니다.\n", 50);
         }
     }
 }

@@ -1,10 +1,9 @@
 package main;
 
 import data.Article;
-import function.CreateArticle;
-import function.UpdateArticle;
-import function.DeleteArticle;
-import function.ReadArticle;
+import function.*;
+import static function.PrintUtil.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +25,7 @@ public class MainMenu {
         this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
         // 샘플 게시물 생성
-        articles.add(new Article(nextId, "첫 번째 게시물", "내용1", "작성자1"));
+        articles.add(new Article(nextId, "우리 집 고양이", "귀여워요", "근찬"));
         articles.add(new Article(++nextId, "두 번째 게시물", "내용2", "작성자2"));
         articles.add(new Article(++nextId, "세 번째 게시물", "내용3", "작성자3"));
     }
@@ -38,30 +37,31 @@ public class MainMenu {
         deleteArticle = new DeleteArticle(articles, sc);
 
 
-        ProgressBar.displayProgressBar(3.0, "서버에 접속 중입니다...");
+        ProgressBar.displayProgressBar(2.0, "서버에 접속하는 중입니다...");
         try {
             Thread.sleep(500);
-            System.out.println("\n접속 완료!");
-            Thread.sleep(800);
-            System.out.println("메인 화면으로 이동합니다.");
+            System.out.println();
+            slowPrintChar("\n접속 완료!\n", 50);
+            Thread.sleep(500);
+            slowPrintChar("메인 화면으로 이동합니다.", 50);
             Thread.sleep(1000);
         } catch (Exception e) {
-            System.out.println("오류 발생");
+            slowPrintChar("오류 발생", 50);
         }
         ClearScreen.clearScreen();
 
         while (true) {
-            System.out.println("=================================");
-            System.out.println("\t Java CLI Board");
-            System.out.println("=================================");
-            System.out.println("1. 게시글 등록");
-            System.out.println("2. 전체 게시글 조회");
-            System.out.println("3. 게시글 상세 조회");
-            System.out.println("4. 게시글 수정");
-            System.out.println("5. 게시글 삭제");
-            System.out.println("0. 종료");
-            System.out.println("---------------------------------");
-            System.out.print("선택 > ");
+            slowPrintLine("=================================", 100);
+            slowPrintChar("\t Java CLI Board\n", 30);
+            slowPrintLine("=================================", 100);
+            slowPrintLine("1. 게시글 등록", 200);
+            slowPrintLine("2. 전체 게시글 조회", 200);
+            slowPrintLine("3. 게시글 상세 조회", 200);
+            slowPrintLine("4. 게시글 수정", 200);
+            slowPrintLine("5. 게시글 삭제", 200);
+            slowPrintLine("0. 종료", 200);
+            slowPrintLine("---------------------------------", 100);
+            slowPrintChar("선택 > ", 50);
             int input = sc.nextInt();
             sc.nextLine();
 
@@ -84,12 +84,13 @@ public class MainMenu {
                     deleteArticle.select();
                     break;
                 case 0: //종료
-                    System.out.println("서비스를 종료합니다.");
+                    slowPrintChar("서비스를 종료합니다.\n", 50);
+                    slowPrintChar("다음에 다시 만나요!\n", 50);
                     return;
                 default:
-                    System.out.println("메뉴에 나와있는 번호만 입력해주십시오.");
+                    slowPrintChar("메뉴에 나와있는 번호만 입력해주세요.", 50);
             }
-            System.out.println("진행하시려면 엔터를 눌러주세요.");
+            slowPrintChar("계속 진행하시려면 엔터를 눌러주세요.", 50);
             sc.nextLine();
             ClearScreen.clearScreen();
         }
