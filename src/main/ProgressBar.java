@@ -1,4 +1,5 @@
 package main;
+import static function.PrintUtil.*;
 
 public class ProgressBar {
 
@@ -6,7 +7,7 @@ public class ProgressBar {
     private static final String ANSI_RESET = "\u001B[0m";
 
     public static void displayProgressBar(double duration, String message) {
-        System.out.println(message);
+        slowPrintChar(message + "\n", 50);
 
         int totalSteps = 40; // 스피너 단계 수
         long interval = (long) ((duration * 1000) / totalSteps);

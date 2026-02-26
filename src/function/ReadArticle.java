@@ -1,5 +1,7 @@
 package function;
 
+import static function.PrintUtil.*;
+
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -21,24 +23,24 @@ public class ReadArticle implements Page {
 		// TODO Auto-generated method stub
 		Boolean isValid = false;
 		while(!isValid) {
-			System.out.println("조회를 원하는 게시글 번호를 입력하십시오.");
-	        System.out.print("선택 > ");
+			slowPrintChar("조회를 원하는 게시글 번호를 입력하세요.\n", 50);
+	        slowPrintChar("선택 > ", 50);
 	    	try {
 	        	int id = sc.nextInt();
 	        	sc.nextLine();
 	        	
 	        	Article target = findById(articles, id);
 	            if(target == null) {
-	            	System.out.println("해당하는 게시글이 없습니다.");
+	            	slowPrintChar("해당하는 게시글이 없습니다.\n", 50);
 	            }else {
 	            	show(id);
 	            	isValid = true;
 	            }
 	        // 숫자 이외의 것을 입력했을 경우 다시 입력받기
 	        }catch (InputMismatchException e){	
-            	System.out.println("=================================");
-            	System.out.println("입력이 올바르지 않습니다. 다시 입력해주세요. ");
-            	System.out.println("=================================");   	
+            	slowPrintLine("=================================", 100);
+            	slowPrintChar("입력이 올바르지 않습니다. 다시 입력해주세요.\n", 50);
+				slowPrintLine("=================================", 100);
             	// 버퍼 비워 주기
             	sc.nextLine();
 	        }
@@ -57,38 +59,49 @@ public class ReadArticle implements Page {
 		if (article != null) {
 			article.increaseViewCount();
 		}
-		
-		System.out.println("=================================");
-        System.out.println("번호\t: " + article.getId());
-        System.out.println("제목\t: " + article.getTitle());
-        System.out.println("작성자\t: " + article.getWriter());
-        System.out.println("작성일\t: " + article.getCreatedAt());
-        System.out.println("조회수\t: " + article.getViewCount());
-        System.out.println("=================================");
+		slowPrintChar(page + " 번 게시물 불러오는 중...\n", 50);
+		slowPrintChar("........", 100);
+		clear();
+		slowPrintChar("게시글 정보를 불러왔습니다.\n", 50);
+		slowPrintLine("=================================", 100);
+        slowPrintLine("번호\t: " + article.getId(), 200);
+        slowPrintLine("제목\t: " + article.getTitle(), 200);
+        slowPrintLine("작성자\t: " + article.getWriter(), 200);
+        slowPrintLine("작성일\t: " + article.getCreatedAt(), 200);
+        slowPrintLine("조회수\t: " + article.getViewCount(),200);
+		slowPrintLine("=================================", 100);
         System.out.println(); // 상세 조회 종료 후 한 줄 띄우기
 	}
 
 	// 모든 게시글을 반환하는 로직
 	public void selectAll() {
 		if(articles.isEmpty()) {
-			System.out.println("등록된 게시글이 없습니다. ");
+			slowPrintChar("등록된 게시글이 없습니다.\n", 50);
 			return;
 		}
-		
-		System.out.println("<<<<<< 전체 게시글 목록 >>>>>>");
-		System.out.println("---------------------------------");
-        System.out.printf("%-4s | %-20s | %-8s | %-10s | %-6s%n", "번호", "제목", "작성자", "작성일", "조회수");
-        System.out.println("---------------------------------");
-		
+		slowPrintChar("게시물 목록을 불러오는 중...\n", 50);
+		slowPrintChar("........................\n", 100);
+
+		clear();
+		slowPrintChar("게시글 목록을 불러왔습니다.\n", 50);
+
+		System.out.println();
+		slowPrintLine("                    <<<<<< 전체 게시글 목록 >>>>>>", 500);
+		slowPrintLine("----------------------------------------------------------------------", 100);
+		String header = String.format("%-4s | %-20s | %-8s | %-10s | %-6s", "번호", "제목", "작성자", "작성일", "조회수");
+		slowPrintLine(header, 200);
+		slowPrintLine("----------------------------------------------------------------------", 100);
+
 		for(Article article : articles) {
-	        System.out.printf("%-4d | %-20s | %-8s | %-10s | %-6d%n",
-	                article.getId(),
+			String row = String.format("%-4d | %-20s | %-8s | %-10s | %-6d",
+					article.getId(),
 	                article.getTitle(),
 	                article.getWriter(),
 	                article.getCreatedAt(),
 	                article.getViewCount());
+			slowPrintLine(row, 200);
 		}
-		System.out.println("---------------------------------");
+		slowPrintLine("---------------------------------", 100);
 	}
 	
 	// 특정 ID로 게시글을 찾아 반환하는 로직
