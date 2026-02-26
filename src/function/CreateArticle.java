@@ -5,12 +5,12 @@ import data.Article;
 import java.util.List;
 import java.util.Scanner;
 
-public class CreateService implements Page {
+public class CreateArticle implements Page {
 
     private final List<Article> articles;
     private final Scanner sc;
 
-    public CreateService(List<Article> articles, Scanner sc) {
+    public CreateArticle(List<Article> articles, Scanner sc) {
         this.articles = articles;
         this.sc = sc;
     }

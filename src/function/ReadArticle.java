@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 import data.Article;
 
-public class ReadService implements Page {
+public class ReadArticle implements Page {
 	private final Scanner sc;
 	private final List<Article> articles;
 	
-    public ReadService(Scanner sc, List<Article> articles){
+    public ReadArticle(List<Article> articles, Scanner sc){
         this.sc = sc;
         this.articles = articles;
     }
@@ -51,6 +51,12 @@ public class ReadService implements Page {
 	public void show(int page) {
 		// TODO Auto-generated method stub
 		Article article = findById(articles, page);
+
+		// 조회수 2 증가 문제 해결
+		// 조회수 증가를 findByArticle 메서드에서 하지 않고 이 부분에서 실행합니다.
+		if (article != null) {
+			article.increaseViewCount();
+		}
 		
 		System.out.println("=================================");
         System.out.println("번호\t: " + article.getId());
@@ -89,8 +95,6 @@ public class ReadService implements Page {
 	private Article findById(List<Article> articles, int id){
 		for(Article article : articles) {
 			if(article.getId() == id) {
-				// 조회 시 조회수 증가!
-				article.increaseViewCount();
 				return article;
 			}
 		}

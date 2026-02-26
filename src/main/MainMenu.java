@@ -1,10 +1,10 @@
 package main;
 
 import data.Article;
-import function.CreateService;
+import function.CreateArticle;
 import function.UpdateArticle;
 import function.DeleteArticle;
-import function.ReadService;
+import function.ReadArticle;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,17 +14,17 @@ public class MainMenu {
     private final List<Article> articles = new ArrayList<>();
     private int nextId = 1;
 
-    private CreateService createService;
+    private CreateArticle createArticle;
+    private ReadArticle readArticle;
     private UpdateArticle updateArticle;
     private DeleteArticle deleteArticle;
-    private ReadService readService;
 
     public MainMenu(Scanner sc) {
         this.sc = sc;
-        this.createService = new CreateService(articles, sc);
+        this.createArticle = new CreateArticle(articles, sc);
+        this.readArticle = new ReadArticle(articles, sc);
         this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
-        this.readService = new ReadService(sc, articles);
         // 샘플 게시물 생성
         articles.add(new Article(nextId, "첫 번째 게시물", "내용1", "작성자1"));
         articles.add(new Article(++nextId, "두 번째 게시물", "내용2", "작성자2"));
@@ -32,10 +32,11 @@ public class MainMenu {
     }
 
     public void show() {
+        createArticle = new CreateArticle(articles, sc);
+        readArticle = new ReadArticle(articles, sc);
         updateArticle = new UpdateArticle(articles, sc);
         deleteArticle = new DeleteArticle(articles, sc);
-        createService = new CreateService(articles, sc);
-        readService = new ReadService(sc, articles);
+
 
         ProgressBar.displayProgressBar(3.0, "서버에 접속 중입니다...");
         try {
@@ -67,14 +68,14 @@ public class MainMenu {
             System.out.println();
             switch (input) {
                 case 1: //게시글 등록
-                    createService.openCreatePage(nextId);
+                    createArticle.openCreatePage(nextId);
                     nextId++;
                     break;
                 case 2: //전체 게시글 조회
-                    readService.selectAll();
+                    readArticle.selectAll();
                     break;
                 case 3: //게시글 상세 조회
-                    readService.select();
+                    readArticle.select();
                     break;
                 case 4: //게시글 수정
                     updateArticle.select();
