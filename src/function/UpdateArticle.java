@@ -26,7 +26,7 @@ public class UpdateArticle implements Page {
     // 업데이트 화면
     @Override
     public void show(int pageNum) {
-        slowPrintChar((pageNum + " 번 게시물 불러오는 중...\n"), 50);
+        slowPrintChar((pageNum + "번 게시물 불러오는 중...\n"), 50);
         slowPrintChar(".....................", 100);
         clear();
         slowPrintChar("게시글 정보를 불러왔습니다.\n", 50);
