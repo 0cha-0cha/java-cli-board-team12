@@ -22,13 +22,13 @@ public class MainMenu {
     public MainMenu(Scanner sc) {
         this.sc = sc;
         this.createService = new CreateService(articles, sc);
-        this.updateArticle = new UpdateArticle(sc);
+        this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
         this.readService = new ReadService(sc, articles);
     }
 
     public void show() {
-        updateArticle = new UpdateArticle(sc);
+        updateArticle = new UpdateArticle(articles, sc);
         deleteArticle = new DeleteArticle(articles, sc);
         createService = new CreateService(articles, sc);
         readService = new ReadService(sc, articles);
