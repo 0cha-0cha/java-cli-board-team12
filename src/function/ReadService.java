@@ -25,6 +25,7 @@ public class ReadService implements Page {
 	        System.out.print("선택 > ");
 	    	try {
 	        	int id = sc.nextInt();
+	        	sc.nextLine();
 	        	
 	        	Article target = findById(articles, id);
 	            if(target == null) {
@@ -57,9 +58,6 @@ public class ReadService implements Page {
         System.out.println("작성자\t: " + article.getWriter());
         System.out.println("작성일\t: " + article.getCreatedAt());
         System.out.println("조회수\t: " + article.getViewCount());
-        System.out.println();
-        System.out.println("---------------------------------");
-        //게시글 조회 기능 삽입
         System.out.println("=================================");
         System.out.println(); // 상세 조회 종료 후 한 줄 띄우기
 	}
@@ -73,17 +71,18 @@ public class ReadService implements Page {
 		
 		System.out.println("<<<<<< 전체 게시글 목록 >>>>>>");
 		System.out.println("---------------------------------");
-        System.out.println("번호 | 제목\t | 작성자 | 작성일 | 조회수 ");
+        System.out.printf("%-4s | %-20s | %-8s | %-10s | %-6s%n", "번호", "제목", "작성자", "작성일", "조회수");
         System.out.println("---------------------------------");
 		
 		for(Article article : articles) {
-			System.out.print(article.getId() + " | ");
-	        System.out.print(article.getTitle() + " | ");
-	        System.out.print(article.getWriter() + " | ");
-	        System.out.print(article.getCreatedAt() + " | ");
-	        System.out.print(article.getViewCount());
-	        System.out.println();
+	        System.out.printf("%-4d | %-20s | %-8s | %-10s | %-6d%n",
+	                article.getId(),
+	                article.getTitle(),
+	                article.getWriter(),
+	                article.getCreatedAt(),
+	                article.getViewCount());
 		}
+		System.out.println("---------------------------------");
 	}
 	
 	// 특정 ID로 게시글을 찾아 반환하는 로직

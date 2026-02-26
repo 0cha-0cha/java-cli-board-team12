@@ -15,6 +15,7 @@ public class DeleteArticle implements Page {
         this.sc = sc;
     }
 
+    // 게시글 삭제 메소드 (삭제 성공 여부 반환)
     public boolean delete(List<Article> articles, int id){
         Iterator<Article> iterator = articles.iterator();
         while (iterator.hasNext()) {
@@ -28,14 +29,18 @@ public class DeleteArticle implements Page {
     }
 
     @Override
+    // 삭제할 글 고르는 화면
     public void select() {
         System.out.println("삭제를 원하는 게시글 번호를 입력하십시오.");
         System.out.print("선택 > ");
         int id = sc.nextInt();
+        sc.nextLine();
         show(id);
     }
 
     @Override
+    // 삭제 화면 
+    // 삭제 성공 여부에 따라 예외처리 문구 출력
     public void show(int articleId) {
         loading(1.0, "삭제하는 중입니다...");
         if(delete(articles, articleId)){

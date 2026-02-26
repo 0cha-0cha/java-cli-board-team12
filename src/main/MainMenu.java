@@ -25,6 +25,10 @@ public class MainMenu {
         this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
         this.readService = new ReadService(sc, articles);
+        // 샘플 게시물 생성
+        articles.add(new Article(nextId, "첫 번째 게시물", "내용1", "작성자1"));
+        articles.add(new Article(++nextId, "두 번째 게시물", "내용2", "작성자2"));
+        articles.add(new Article(++nextId, "세 번째 게시물", "내용3", "작성자3"));
     }
 
     public void show() {
@@ -56,7 +60,7 @@ public class MainMenu {
             System.out.println("5. 게시글 삭제");
             System.out.println("0. 종료");
             System.out.println("---------------------------------");
-            System.out.print("선택> ");
+            System.out.print("선택 > ");
             int input = sc.nextInt();
             sc.nextLine();
 
@@ -84,7 +88,6 @@ public class MainMenu {
                 default:
                     System.out.println("메뉴에 나와있는 번호만 입력해주십시오.");
             }
-            sc.nextLine(); // 버퍼 비우기
             System.out.println("진행하시려면 엔터를 눌러주세요.");
             sc.nextLine();
             ClearScreen.clearScreen();
