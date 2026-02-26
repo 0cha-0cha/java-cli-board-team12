@@ -1,4 +1,3 @@
-import function.UpdateArticle;
 import main.MainMenu;
 
 import java.util.Scanner;
