@@ -52,11 +52,11 @@ public class ReadService implements Page {
 		Article article = findById(articles, page);
 		
 		System.out.println("=================================");
-        System.out.print("번호\t: " + article.getId());
-        System.out.print("제목\t: " + article.getTitle());
-        System.out.print("작성자\t: " + article.getWriter());
-        System.out.print("작성일\t: " + article.getCreatedAt());
-        System.out.print("조회수\t: " + article.getViewCount());
+        System.out.println("번호\t: " + article.getId());
+        System.out.println("제목\t: " + article.getTitle());
+        System.out.println("작성자\t: " + article.getWriter());
+        System.out.println("작성일\t: " + article.getCreatedAt());
+        System.out.println("조회수\t: " + article.getViewCount());
         System.out.println();
         System.out.println("---------------------------------");
         //게시글 조회 기능 삽입
