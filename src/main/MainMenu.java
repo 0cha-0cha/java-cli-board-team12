@@ -56,6 +56,7 @@ public class MainMenu {
             System.out.println("---------------------------------");
             System.out.print("선택> ");
             int input = sc.nextInt();
+            sc.nextLine();
             System.out.println();
             switch (input) {
                 case 1: //게시글 등록
