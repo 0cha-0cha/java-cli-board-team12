@@ -5,7 +5,7 @@ import function.CreateService;
 import function.ReadService;
 import function.UpdateArticle;
 import function.DeleteArticle;
-// import function.ReadService;
+import function.ReadService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,6 +19,7 @@ public class MainMenu {
     private ReadService readService;
     private UpdateArticle updateArticle;
     private DeleteArticle deleteArticle;
+    private ReadService readService;
 
     public MainMenu(Scanner sc) {
         this.sc = sc;
@@ -26,13 +27,14 @@ public class MainMenu {
         this.readService = new ReadService(sc, articles);
         this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
+        this.readService = new ReadService(sc, articles);
     }
 
     public void show() {
         updateArticle = new UpdateArticle(articles, sc);
         deleteArticle = new DeleteArticle(articles, sc);
         createService = new CreateService(articles, sc);
-        // readService = new ReadService();
+        readService = new ReadService(sc, articles);
 
         ProgressBar.displayProgressBar(3.0, "서버에 접속 중입니다...");
         try {
@@ -59,6 +61,8 @@ public class MainMenu {
             System.out.println("---------------------------------");
             System.out.print("선택> ");
             int input = sc.nextInt();
+            sc.nextLine();
+
             System.out.println();
             switch (input) {
                 case 1: //게시글 등록
@@ -69,6 +73,7 @@ public class MainMenu {
                     readService.selectAll();
                     break;
                 case 3: //게시글 상세 조회
+                    readService.select();
                     break;
                 case 4: //게시글 수정
                     updateArticle.select();

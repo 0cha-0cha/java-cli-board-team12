@@ -1,5 +1,6 @@
 package data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Article {
@@ -7,7 +8,7 @@ public class Article {
     private String title;
     private String content;
     private String writer;
-    private final LocalDateTime createdAt;
+    private final LocalDate createdAt;
     private int viewCount;
 
     public Article(int Id, String title, String content, String writer) {
@@ -15,7 +16,7 @@ public class Article {
         setTitle(title);
         setContent(content);
         setWriter(writer);
-        this.createdAt = LocalDateTime.now();  //생성 시 createdAt 자동 세팅
+        this.createdAt = LocalDate.now();  //생성 시 createdAt 자동 세팅
         this.viewCount = 0; //viewCount 0 시작
     }
     public void setId(int id) {
@@ -43,7 +44,7 @@ public class Article {
     public String getWriter() {
         return writer;
     }
-    public LocalDateTime getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
     public int getViewCount() {
