@@ -9,5 +9,6 @@ public class Main{
         MainMenu menu = new MainMenu(sc);
 
         menu.show();
+
     }
 }
