@@ -2,6 +2,7 @@ package main;
 
 import data.Article;
 import function.CreateService;
+import function.ReadService;
 import function.UpdateArticle;
 import function.DeleteArticle;
 // import function.ReadService;
@@ -15,18 +16,20 @@ public class MainMenu {
     private int nextId = 1;
 
     private CreateService createService;
+    private ReadService readService;
     private UpdateArticle updateArticle;
     private DeleteArticle deleteArticle;
 
     public MainMenu(Scanner sc) {
         this.sc = sc;
         this.createService = new CreateService(articles, sc);
-        this.updateArticle = new UpdateArticle(sc);
+        this.readService = new ReadService(sc, articles);
+        this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
     }
 
     public void show() {
-        updateArticle = new UpdateArticle(sc);
+        updateArticle = new UpdateArticle(articles, sc);
         deleteArticle = new DeleteArticle(articles, sc);
         createService = new CreateService(articles, sc);
         // readService = new ReadService();
@@ -63,6 +66,7 @@ public class MainMenu {
                     nextId++;
                     break;
                 case 2: //전체 게시글 조회
+                    readService.selectAll();
                     break;
                 case 3: //게시글 상세 조회
                     break;
@@ -78,7 +82,7 @@ public class MainMenu {
                 default:
                     System.out.println("메뉴에 나와있는 번호만 입력해주십시오.");
             }
-            sc.nextLine(); // 버퍼 비우기
+//            sc.nextLine(); // 버퍼 비우기
             System.out.println("진행하시려면 엔터를 눌러주세요.");
             sc.nextLine();
             ClearScreen.clearScreen();
