@@ -11,8 +11,8 @@ public class Main{
 
         menu.show();
 
-        UpdateArticle update = new UpdateArticle(sc);
-        update.select();
+        // UpdateArticle update = new UpdateArticle(sc);
+        // update.select();
 
     }
 }

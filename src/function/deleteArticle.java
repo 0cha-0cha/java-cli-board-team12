@@ -6,11 +6,11 @@ import java.util.Iterator;
 import data.Article;
 
 // 게시글 삭제 기능
-public class deleteArticle implements Page {
+public class DeleteArticle implements Page {
     private final Scanner sc;
     List<Article> articles;
 
-    public deleteArticle(List<Article> articles, Scanner sc) {
+    public DeleteArticle(List<Article> articles, Scanner sc) {
         this.articles = articles;
         this.sc = sc;
     }
