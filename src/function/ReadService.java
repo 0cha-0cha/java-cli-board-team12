@@ -61,6 +61,7 @@ public class ReadService implements Page {
         System.out.println("---------------------------------");
         //게시글 조회 기능 삽입
         System.out.println("=================================");
+        System.out.println(); // 상세 조회 종료 후 한 줄 띄우기
 	}
 
 	// 모든 게시글을 반환하는 로직
@@ -81,6 +82,7 @@ public class ReadService implements Page {
 	        System.out.print(article.getWriter() + " | ");
 	        System.out.print(article.getCreatedAt() + " | ");
 	        System.out.print(article.getViewCount());
+	        System.out.println();
 		}
 	}
 	
