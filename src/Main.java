@@ -9,5 +9,9 @@ public class Main{
         MainMenu menu = new MainMenu(sc);
 
         menu.show();
+
+        // UpdateArticle update = new UpdateArticle(sc);
+        // update.select();
+
     }
 }
