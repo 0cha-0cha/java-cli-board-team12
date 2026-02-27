@@ -56,6 +56,7 @@ public class ReadArticle implements Page {
 
 		// 조회수 2 증가 문제 해결
 		// 조회수 증가를 findByArticle 메서드에서 하지 않고 이 부분에서 실행합니다.
+		// 상세 보기 이므로 내용도 볼 수 있도록 추가
 		if (article != null) {
 			article.increaseViewCount();
 		}
@@ -88,13 +89,24 @@ public class ReadArticle implements Page {
 		slowPrintChar("게시글 목록을 불러왔습니다.\n", 50);
 
 		System.out.println();
-		slowPrintLine("                    <<<<<< 전체 게시글 목록 >>>>>>", 500);
+		slowPrintLine("                    <<<<<< 전체 게시글 목록 >>>>>>", 500);	// tab5
 		slowPrintLine("----------------------------------------------------------------------", 100);
 		String header = String.format("%-4s | %-20s | %-8s | %-10s | %-6s", "번호", "제목", "작성자", "작성일", "조회수");
 		slowPrintLine(header, 200);
 		slowPrintLine("----------------------------------------------------------------------", 100);
 
+		int rowCnt = 0;
 		for(Article article : articles) {
+			// 게시글 5개씩 볼 수 있도록 끊어내기
+			if(rowCnt%5 == 0 && rowCnt != 0) {
+				slowPrintLine("		게시물을 더 보시려면 엔터를 눌러주세요", 200);
+				String keep = sc.nextLine();
+				if(keep.isEmpty()) {
+					System.out.print("\033[1A\033[2K");
+					System.out.print("\033[1A\033[2K");
+				}
+			}
+			// 게시글 목록 출력
 			String row = String.format("%-4d | %-20s | %-8s | %-10s | %-6d",
 					article.getId(),
 	                article.getTitle(),
@@ -102,8 +114,9 @@ public class ReadArticle implements Page {
 	                article.getCreatedAt(),
 	                article.getViewCount());
 			slowPrintLine(row, 200);
+			rowCnt++;
 		}
-		slowPrintLine("---------------------------------", 100);
+		slowPrintLine("--------------------------------- 끝 ---------------------------------", 100);
 	}
 	
 	// 특정 ID로 게시글을 찾아 반환하는 로직
