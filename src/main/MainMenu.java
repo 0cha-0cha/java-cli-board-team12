@@ -84,7 +84,7 @@ public class MainMenu {
                 default:
                     System.out.println("메뉴에 나와있는 번호만 입력해주십시오.");
             }
-            sc.nextLine(); // 버퍼 비우기
+            // sc.nextLine(); // 버퍼 비우기
             System.out.println("진행하시려면 엔터를 눌러주세요.");
             sc.nextLine();
             ClearScreen.clearScreen();

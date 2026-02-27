@@ -84,6 +84,8 @@ public class ReadService implements Page {
 	        System.out.print(article.getViewCount());
 	        System.out.println();
 		}
+		
+		System.out.println();
 	}
 	
 	// 특정 ID로 게시글을 찾아 반환하는 로직
