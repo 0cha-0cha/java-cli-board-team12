@@ -78,6 +78,7 @@ java -cp out Main
 ---------------------------------
 선택 >
 ```
+![main](https://github.com/user-attachments/assets/bf440e63-607a-4423-8c54-bb231aaa8a71)
 
 ### 1) 게시글 등록
 
@@ -95,6 +96,7 @@ java -cp out Main
 게시글 등록이 완료되었습니다.
 =================================
 ```
+![create](https://github.com/user-attachments/assets/97dee094-c084-4349-bff3-28897121269f)
 
 ### 2) 전체 게시글 조회
 
@@ -113,6 +115,7 @@ java -cp out Main
 3    | 세 번째 게시물             | 작성자3     | 2026-02-27 | 0
 ---------------------------------
 ```
+![articles](https://github.com/user-attachments/assets/43bfd22d-458b-414d-a2b4-fe31bca711b8)
 
 ### 3) 게시글 상세 조회
 
@@ -133,6 +136,7 @@ java -cp out Main
 내용    : 내용1
 =================================
 ```
+![detail](https://github.com/user-attachments/assets/f2f18fec-9330-46f5-bd39-f416a09e042e)
 
 ### 4) 게시글 수정
 
@@ -159,6 +163,7 @@ java -cp out Main
 게시글 수정이 완료되었습니다.
 =================================
 ```
+![up](https://github.com/user-attachments/assets/88eddf71-d8e1-4e58-b4c8-608824955621)
 
 ### 5) 게시글 삭제
 
@@ -171,6 +176,7 @@ java -cp out Main
 게시글 삭제가 완료되었습니다.
 =================================
 ```
+![del](https://github.com/user-attachments/assets/cd6cb10d-e601-410c-b38b-5680123c9cc2)
 
 > 참고: 현재 구현은 `slowPrintChar`/`slowPrintLine`을 사용하므로 실제 콘솔에서는 출력이 순차적으로 나타납니다.
 
