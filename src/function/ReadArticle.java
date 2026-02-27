@@ -69,6 +69,8 @@ public class ReadArticle implements Page {
         slowPrintLine("작성자\t: " + article.getWriter(), 200);
         slowPrintLine("작성일\t: " + article.getCreatedAt(), 200);
         slowPrintLine("조회수\t: " + article.getViewCount(),200);
+		slowPrintLine("---------------------------------", 100);
+		slowPrintLine("내용\t: " + article.getContent(), 200);
 		slowPrintLine("=================================", 100);
         System.out.println(); // 상세 조회 종료 후 한 줄 띄우기
 	}

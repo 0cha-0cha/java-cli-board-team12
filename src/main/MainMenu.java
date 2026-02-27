@@ -25,9 +25,9 @@ public class MainMenu {
         this.updateArticle = new UpdateArticle(articles, sc);
         this.deleteArticle = new DeleteArticle(articles, sc);
         // 샘플 게시물 생성
-        articles.add(new Article(nextId, "우리 집 고양이", "귀여워요", "근찬"));
-        articles.add(new Article(++nextId, "두 번째 게시물", "내용2", "작성자2"));
-        articles.add(new Article(++nextId, "세 번째 게시물", "내용3", "작성자3"));
+        articles.add(new Article(nextId++, "첫 번째 게시물", "내용1", "작성자1"));
+        articles.add(new Article(nextId++, "두 번째 게시물", "내용2", "작성자2"));
+        articles.add(new Article(nextId++, "세 번째 게시물", "내용3", "작성자3"));
     }
 
     public void show() {
