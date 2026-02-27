@@ -115,7 +115,7 @@ java -cp out Main
 3    | 세 번째 게시물             | 작성자3     | 2026-02-27 | 0
 ---------------------------------
 ```
-![articles](https://github.com/user-attachments/assets/43bfd22d-458b-414d-a2b4-fe31bca711b8)
+![articles](https://github.com/user-attachments/assets/8d45a622-35fa-4780-a7a7-4785ba0d83f3)
 
 ### 3) 게시글 상세 조회
 
@@ -136,7 +136,7 @@ java -cp out Main
 내용    : 내용1
 =================================
 ```
-![detail](https://github.com/user-attachments/assets/f2f18fec-9330-46f5-bd39-f416a09e042e)
+![showdetail](https://github.com/user-attachments/assets/c8e6980a-6081-4e0d-9f6e-db8e2183117c)
 
 ### 4) 게시글 수정
 
