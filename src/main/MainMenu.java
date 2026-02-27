@@ -90,12 +90,7 @@ public class MainMenu {
                 default:
                     slowPrintChar("메뉴에 나와있는 번호만 입력해주세요.", 50);
             }
-<<<<<<< HEAD
-            // sc.nextLine(); // 버퍼 비우기
-            System.out.println("진행하시려면 엔터를 눌러주세요.");
-=======
             slowPrintChar("계속 진행하시려면 엔터를 눌러주세요.", 50);
->>>>>>> 13860889a722c37551cdba75b2c1e380f6b233ad
             sc.nextLine();
             ClearScreen.clearScreen();
         }
