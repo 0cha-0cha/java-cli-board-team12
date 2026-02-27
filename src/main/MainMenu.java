@@ -62,28 +62,39 @@ public class MainMenu {
             slowPrintLine("0. 종료", 200);
             slowPrintLine("---------------------------------", 100);
             slowPrintChar("선택 > ", 50);
-            int input = sc.nextInt();
-            sc.nextLine();
+
+            String input = sc.nextLine();
+            char inputChar = input.charAt(0);
+
+            // 메뉴 번호 유효성 검사
+            while(inputChar < '0' || inputChar > '5' || input.length() != 1) {
+                slowPrintLine("** 메뉴에 나와있는 번호만 입력해주세요. **", 50);
+                slowPrintChar("선택 > ", 50);
+                input = sc.nextLine();
+                if (input.length() == 1) {
+                    inputChar = input.charAt(0);
+                }
+            }
 
             System.out.println();
-            switch (input) {
-                case 1: //게시글 등록
+            switch (inputChar) {
+                case '1': //게시글 등록
                     createArticle.openCreatePage(nextId);
                     nextId++;
                     break;
-                case 2: //전체 게시글 조회
+                case '2': //전체 게시글 조회
                     readArticle.selectAll();
                     break;
-                case 3: //게시글 상세 조회
+                case '3': //게시글 상세 조회
                     readArticle.select();
                     break;
-                case 4: //게시글 수정
+                case '4': //게시글 수정
                     updateArticle.select();
                     break;
-                case 5: //게시글 삭제
+                case '5': //게시글 삭제
                     deleteArticle.select();
                     break;
-                case 0: //종료
+                case '0': //종료
                     slowPrintChar("서비스를 종료합니다.\n", 50);
                     slowPrintChar("다음에 다시 만나요!\n", 50);
                     return;
