@@ -1,7 +1,6 @@
 package data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Article {
     private int id;
